@@ -3,29 +3,34 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = 
-  entries: [
-  	{
-	  	name: "Learn Angular"
-	  	priorities: "Now"
-	},
-  	{
-  		name: "Learn Node"
-  		priorities: "Someday"
-  	}];
+
+  $scope.newItem = "";
+  $scope.newPri = "";
+
+ $scope.todos = {
+    entries : [
+        {
+            "name": "Learn Angular", 
+           	"pri": "NOW"
+        }, 
+        { 
+            "name": "Learn node"
+        }]};
+
   
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
-      $scope.todos.push($scope.newItem);
+      $scope.todos.entries.push({"name": $scope.newItem, "pri": $scope.newPri});
       $scope.newItem = "";
+      $scope.newPri = "";
     }
   }
     
   $scope.deleteItem = function(item){
     console.log("in delete");
-    var index = $scope.todos.indexOf(item);
-    $scope.todos.splice(index, 1);
+    var index = $scope.todos.entries.indexOf(item);
+    $scope.todos.entries.splice(index, 1);
   }
     
   
