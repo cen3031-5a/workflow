@@ -19,6 +19,18 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
+
+  $scope.clearCompletedItems = function(){
+    alert("Let's delete all completed tasks!");
+    /*//if state is completed then delete
+    var clearedTodos = [];
+    for(var i in $scope.todos){
+      if($scope.todos[i].state != 'completed'){
+        clearedTodos.push($scope.todos[i]);
+      }
+    }
+    $scope.todos = clearedTodos;*/
+  }
     
   
 });
