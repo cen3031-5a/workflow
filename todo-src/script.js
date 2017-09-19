@@ -3,8 +3,16 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["Learn Angular", "Learn node"];
-  $scope.newItem = "";
+  $scope.todos = 
+  entries: [
+  	{
+	  	name: "Learn Angular"
+	  	priorities: "Now"
+	},
+  	{
+  		name: "Learn Node"
+  		priorities: "Someday"
+  	}];
   
   $scope.addItem = function(){
     console.log("in add");
