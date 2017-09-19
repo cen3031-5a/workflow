@@ -36,8 +36,8 @@ myApp.controller('MainCtrl', function ($scope){
     var completedString = "--complete--";
     
     //if string doesn't contains --complete-- then add it
-    for(var i in $scope.todos){
-      if($scope.todos[i].indexOf(completedString) != -1){
+    for(var i in $scope.todos.entries){
+      if($scope.todos[i].indexOf(completedString) == -1){
         clearedTodos.push($scope.todos[i]);
       }
     }
@@ -45,11 +45,12 @@ myApp.controller('MainCtrl', function ($scope){
   }
     
   $scope.complete = function(item){
-   if(item.indexOf("--complete--") == -1){
-     var index = $scope.todos.indexOf(item);
-     $scope.todos.splice(index, 1);
-     $scope.todos.push(item+"--complete--");
+   if(item.name.indexOf("--complete--") == -1){
+     var index = $scope.todos.entries.indexOf(item);
+     $scope.todos.entries.splice(index, 1);
+     $scope.todos.entries.push({"name": item.name+"--complete--", "pri": $scope.newPri});
      $scope.newItem = "";
+    $scope.newPri = "";
    }
   }
   
