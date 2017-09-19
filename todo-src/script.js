@@ -23,13 +23,15 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.newItem = "";
     }
     console.log($scope.todos)
-    $scope.counter = count($scope.todos);
+    $scope.count();
   }
 
   $scope.deleteItem = function(item){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.count();
+
   }
 
 
