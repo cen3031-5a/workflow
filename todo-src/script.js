@@ -2,101 +2,115 @@
 
 var myApp = angular.module('app', []);
 
-myApp.controller('MainCtrl', function ($scope){
+myApp.controller('MainCtrl', function($scope) {
 
   $scope.newItem = "";
-
   $scope.newPri = "";
   $scope.priorities = ["NOW", "Tomorrow", "Someday"];
- $scope.todos = {
+  $scope.todos = {
     "entries": [
-        {
-            "name": "Learn Angular", 
-           	"pri": "NOW"
-        }, 
-        { 
-            "name": "Learn node"
-        }]};
+      {
+        "name": "Learn Angular",
+        "pri": "NOW"
+      }, {
+        "name": "Learn node"
+      }
+    ]
+  };
 
-  
+  $scope.count = function() {
+    console.log($scope.todos.entries);
+    var count = 0;
+    for (i in $scope.todos.entries) {
+      count++;
+      console.log(count);
+    }
+    $scope.counter = count;
+  }
 
-  $scope.addItem = function(){
+  $scope.addItem = function() {
     console.log("in add");
-    if ($scope.newItem !== ""){
+    if ($scope.newItem !== "") {
       $scope.todos.entries.push({"name": $scope.newItem, "pri": $scope.newPri});
       $scope.newItem = "";
       $scope.newPri = "";
     }
+    console.log($scope.todos)
+    $scope.count();
   }
 
-  $scope.deleteItem = function(item){
+  $scope.deleteItem = function(item) {
     console.log("in delete");
     var index = $scope.todos.entries.indexOf(item);
     $scope.todos.entries.splice(index, 1);
+    $scope.count();
+
   }
 
-  $scope.clearCompletedItems = function(){
+  $scope.clearCompletedItems = function() {
     //if string doesn't contains --complete-- then add it
     var work = false;
-    for(var i in $scope.todos.entries){
-      if(work){
+    for (var i in $scope.todos.entries) {
+      if (work) {
         i--;
         work = false;
       };
       console.log($scope.todos.entries[i].name);
       var check = $scope.todos.entries[i].name.split("--");
-            console.log(check);
+      console.log(check);
       var arr = {};
-      if(check[1] == "complete"){
-         $scope.todos.entries.splice(i,1);
-         work = true;
+      if (check[1] == "complete") {
+        $scope.todos.entries.splice(i, 1);
+        work = true;
         // arr.append(i)
         // console.log(arr);
       }
-      
+
     }
     work = false;
-    for(var i in $scope.todos.entries){
-      if(work){
+    for (var i in $scope.todos.entries) {
+      if (work) {
         i--;
         work = true;
       };
       console.log($scope.todos.entries[i].name);
       var check = $scope.todos.entries[i].name.split("--");
-            console.log(check);
+      console.log(check);
       var arr = {};
-      if(check[1] == "complete"){
-         $scope.todos.entries.splice(i,1);
-         work = true;
+      if (check[1] == "complete") {
+        $scope.todos.entries.splice(i, 1);
+        work = true;
         // arr.append(i)
         // console.log(arr);
       }
-      
+
     }
+    $scope.count();
 
-    
-  }
-    
 
-  $scope.complete = function(item){
-   if(item.name.indexOf("--complete--") == -1){
-     var index = $scope.todos.entries.indexOf(item);
-     $scope.newPri = $scope.todos.entries[index].pri;
-     $scope.todos.entries.splice(index, 1);
-     $scope.todos.entries.push({"name": item.name+"--complete--", "pri": $scope.newPri});
-     $scope.newPri = "";
-     $scope.newItem = "";
-   }
   }
 
-
-  $scope.editItem = function(id){
-    for(i in $scope.todos.entries) {
-    if($scope.todos.entries[i].name == id.name) {
-      $scope.todos.entries[i].name = $scope.edit ;
+  $scope.complete = function(item) {
+    if (item.name.indexOf("--complete--") == -1) {
+      var index = $scope.todos.entries.indexOf(item);
+      $scope.newPri = $scope.todos.entries[index].pri;
+      $scope.todos.entries.splice(index, 1);
+      $scope.todos.entries.push({
+        "name": item.name + "--complete--",
+        "pri": $scope.newPri
+      });
+      $scope.newPri = "";
+      $scope.newItem = "";
     }
   }
-};
+
+  $scope.editItem = function(id) {
+    for (i in $scope.todos.entries) {
+      if ($scope.todos.entries[i].name == id.name) {
+        $scope.todos.entries[i].name = $scope.edit;
+      }
+    }
+  };
 
 });
 

@@ -13,7 +13,9 @@
     <h1 class="text-center">My little to do app!</h1>
     <h2 class="text-center">GROUP 5a</h2>
 
-    <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
+
+    <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl" ng-init="count()">
+      <h3  ng-model="counter">Counter: {{counter}}</h3>
 
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
@@ -26,7 +28,9 @@
         </div><!-- /input-group -->
 
         <div>
-          <select ng-model="newPri" ng-options="item for item in priorities"></select>
+          <select ng-model="newPri" ng-options="item for item in priorities">
+            <option value="">-- choose priority --</option>
+          </select>
         </div>
 
       <h2>stuff i gotta do asap</h2>
@@ -36,7 +40,7 @@
 
 
         <li class="list-group-item clearfix" ng-repeat="do in todos.entries">
-          
+
           <span>{{do.name}}</span>
           <span style="background-color: orange; border-radius: 2px; font-size: 10px;">{{do.pri}}</span>
 
