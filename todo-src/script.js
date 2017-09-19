@@ -21,16 +21,12 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
   $scope.clearCompletedItems = function(){
-    var clearedTodos = [];
-    var completedString = "--complete--";
-    
     //if string doesn't contains --complete-- then add it
     for(var i in $scope.todos){
-      if($scope.todos[i].indexOf(completedString) != -1){
-        clearedTodos.push($scope.todos[i]);
+      if($scope.todos[i].indexOf("--complete--") != -1){
+        $scope.todos.pop($scope.todos[i]);
       }
     }
-    $scope.todos = clearedTodos;
   }
     
   $scope.complete = function(item){
