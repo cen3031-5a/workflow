@@ -13,7 +13,9 @@
     <h1 class="text-center">My little to do app!</h1>
     <h2 class="text-center">GROUP 5a</h2>
 
-    <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
+
+    <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl" ng-init="count()">
+      <h4  ng-model="counter"></h4>
 
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
