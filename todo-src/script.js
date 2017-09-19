@@ -32,6 +32,14 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos = clearedTodos;*/
   }
     
+  $scope.complete = function(item){
+   if(item.indexOf("--complete--") == -1){
+     var index = $scope.todos.indexOf(item);
+     $scope.todos.splice(index, 1);
+     $scope.todos.push(item+"--complete--");
+     $scope.newItem = "";
+   }
+  }
   
 });
 
