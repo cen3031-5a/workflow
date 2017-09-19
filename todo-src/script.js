@@ -31,6 +31,7 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.entries.splice(index, 1);
   }
     
+
   
 });
 
