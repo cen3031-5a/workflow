@@ -38,9 +38,16 @@
                     <button class="btn btn-danger pull-right" type="button" ng-click="complete(do)">
             <span aria-hidden="true"></span>Complete</button>
 
+          <button class="btn btn-primary pull-right" type="button" ng-click="editItem(do)">
+            <span class="glyphicon glyphicon-edit " aria-hidden="true"></span>
+          </button>
 
         </li>
       </ul>
+
+      <h2>Edit</h2>
+      <input type="text" class="form-control" placeholder="Enter description here then press the edit. Cannot have duplicates." ng-model="edit">
+
     </div>
 
   </body>
