@@ -5,7 +5,7 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.newItem = "";
   $scope.newPri = "";
-
+  $scope.priorities = ["NOW", "Tomorrow", "Someday"];
  $scope.todos = {
     entries : [
         {
