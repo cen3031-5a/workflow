@@ -56,6 +56,12 @@
       <h2>Edit</h2>
       <input type="text" class="form-control" placeholder="Enter description here then press the edit. Cannot have duplicates." ng-model="edit">
 
+      <div>
+        <button class="btn btn-danger pull-right" type="button" ng-click="clearCompletedItems()">
+          <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+          Clear Completed Tasks
+        </button>
+      </div>
     </div>
 
   </body>

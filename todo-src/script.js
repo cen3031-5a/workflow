@@ -9,7 +9,7 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.newPri = "";
   $scope.priorities = ["NOW", "Tomorrow", "Someday"];
  $scope.todos = {
-    entries : [
+    "entries": [
         {
             "name": "Learn Angular", 
            	"pri": "NOW"
@@ -33,6 +33,48 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.entries.indexOf(item);
     $scope.todos.entries.splice(index, 1);
+  }
+
+  $scope.clearCompletedItems = function(){
+    //if string doesn't contains --complete-- then add it
+    var work = false;
+    for(var i in $scope.todos.entries){
+      if(work){
+        i--;
+        work = false;
+      };
+      console.log($scope.todos.entries[i].name);
+      var check = $scope.todos.entries[i].name.split("--");
+            console.log(check);
+      var arr = {};
+      if(check[1] == "complete"){
+         $scope.todos.entries.splice(i,1);
+         work = true;
+        // arr.append(i)
+        // console.log(arr);
+      }
+      
+    }
+    work = false;
+    for(var i in $scope.todos.entries){
+      if(work){
+        i--;
+        work = true;
+      };
+      console.log($scope.todos.entries[i].name);
+      var check = $scope.todos.entries[i].name.split("--");
+            console.log(check);
+      var arr = {};
+      if(check[1] == "complete"){
+         $scope.todos.entries.splice(i,1);
+         work = true;
+        // arr.append(i)
+        // console.log(arr);
+      }
+      
+    }
+
+    
   }
     
 
