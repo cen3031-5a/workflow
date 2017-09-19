@@ -21,15 +21,16 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
   $scope.clearCompletedItems = function(){
-    alert("Let's delete all completed tasks!");
-    /*//if state is completed then delete
     var clearedTodos = [];
+    var completedString = "--complete--";
+    
+    //if string doesn't contains --complete-- then add it
     for(var i in $scope.todos){
-      if($scope.todos[i].state != 'completed'){
+      if($scope.todos[i].indexOf(completedString) != -1){
         clearedTodos.push($scope.todos[i]);
       }
     }
-    $scope.todos = clearedTodos;*/
+    $scope.todos = clearedTodos;
   }
     
   $scope.complete = function(item){
