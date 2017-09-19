@@ -6,7 +6,7 @@ myApp.controller('MainCtrl', function ($scope){
 
   $scope.newItem = "";
   $scope.newPri = "";
-
+  $scope.priorities = ["NOW", "Tomorrow", "Someday"];
  $scope.todos = {
     entries : [
         {
@@ -33,6 +33,7 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.entries.splice(index, 1);
   }
     
+
   
 });
 

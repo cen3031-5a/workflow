@@ -23,7 +23,9 @@
             </button>
           </span>
         </div><!-- /input-group -->
-        
+        <div>
+          <select ng-model="newPri" ng-options="item for item in priorities"></select>
+        </div>
       <h2>stuff i gotta do asap</h2>
       
       <ul class="list-group">
@@ -31,7 +33,7 @@
         <li class="list-group-item clearfix" ng-repeat="do in todos.entries">
           
           <span>{{do.name}}</span>
-          <span>{{do.pri}}</span>
+          <span style="background-color: orange; border-radius: 2px; font-size: 10px; line-height: 15px">{{do.pri}}</span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
