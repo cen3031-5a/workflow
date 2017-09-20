@@ -47,6 +47,27 @@ myApp.controller('MainCtrl', function($scope) {
 
   }
 
+  $scope.clearCompletedItems = function(){
+    //if string doesn't contains --complete-- then add it
+    for(var i in $scope.todos){
+      if($scope.todos[i].indexOf("--complete--") != -1){
+        $scope.todos.pop($scope.todos[i]);
+      }
+    }
+  }
+    
+
+  $scope.complete = function(item){
+   if(item.name.indexOf("--complete--") == -1){
+     var index = $scope.todos.entries.indexOf(item);
+     $scope.newPri = $scope.todos.entries[index].pri;
+     $scope.todos.entries.splice(index, 1);
+     $scope.todos.entries.push({"name": item.name+"--complete--", "pri": $scope.newPri});
+     $scope.newPri = "";
+     $scope.newItem = "";
+   }
+  }
+
   $scope.clearCompletedItems = function() {
     //if string doesn't contains --complete-- then add it
     var work = false;
