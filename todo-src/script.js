@@ -3,24 +3,59 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.todos = ["Learn Angular", "Learn node"];
+
   $scope.newItem = "";
+
+  $scope.newPri = "";
+  $scope.priorities = ["NOW", "Tomorrow", "Someday"];
+ $scope.todos = {
+    entries : [
+        {
+            "name": "Learn Angular", 
+           	"pri": "NOW"
+        }, 
+        { 
+            "name": "Learn node"
+        }]};
+
   
+
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
-      $scope.todos.push($scope.newItem);
+      $scope.todos.entries.push({"name": $scope.newItem, "pri": $scope.newPri});
       $scope.newItem = "";
+      $scope.newPri = "";
     }
   }
-    
+
   $scope.deleteItem = function(item){
     console.log("in delete");
-    var index = $scope.todos.indexOf(item);
-    $scope.todos.splice(index, 1);
+    var index = $scope.todos.entries.indexOf(item);
+    $scope.todos.entries.splice(index, 1);
   }
     
-  
+
+  $scope.complete = function(item){
+   if(item.name.indexOf("--complete--") == -1){
+     var index = $scope.todos.entries.indexOf(item);
+     $scope.newPri = $scope.todos.entries[index].pri;
+     $scope.todos.entries.splice(index, 1);
+     $scope.todos.entries.push({"name": item.name+"--complete--", "pri": $scope.newPri});
+     $scope.newPri = "";
+     $scope.newItem = "";
+   }
+  }
+
+
+  $scope.editItem = function(id){
+    for(i in $scope.todos.entries) {
+    if($scope.todos.entries[i].name == id.name) {
+      $scope.todos.entries[i].name = $scope.edit ;
+    }
+  }
+};
+
 });
 
 /*************************
@@ -32,5 +67,5 @@ myApp.controller('MainCtrl', function ($scope){
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- * 
+ *
  * *********************/
