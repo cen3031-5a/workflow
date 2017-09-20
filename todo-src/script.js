@@ -34,6 +34,15 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.entries.indexOf(item);
     $scope.todos.entries.splice(index, 1);
   }
+
+  $scope.clearCompletedItems = function(){
+    //if string doesn't contains --complete-- then add it
+    for(var i in $scope.todos){
+      if($scope.todos[i].indexOf("--complete--") != -1){
+        $scope.todos.pop($scope.todos[i]);
+      }
+    }
+  }
     
 
   $scope.complete = function(item){
