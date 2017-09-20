@@ -145,6 +145,18 @@ myApp.controller('MainCtrl', function($scope) {
  * - add a due date
  * - add reminder (setInterval)
  *
+
+
+  * Homework 
+ * - "enter" button functionality instead of clicking button
+ * - edit button functionality
+ * - button to mark item as "complete"
+ * - have a total number of items at the top
+ * - make it prettier
+ * - add a due date
+ * - add reminder (setInterval)
+
+
   * Homework (not rly):
  * - "enter" button functionality instead of clicking button
  * - edit button functionality
@@ -153,12 +165,5 @@ myApp.controller('MainCtrl', function($scope) {
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
-  * Homework (not rly):
- * - "enter" button functionality instead of clicking button
- * - edit button functionality
- * - button to mark item as "complete"
- * - have a total number of items at the top
- * - make it prettier
- * - add a due date
- * - add reminder (setInterval)
+ jh
  * *********************/
