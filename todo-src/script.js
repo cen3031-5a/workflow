@@ -147,7 +147,7 @@ myApp.controller('MainCtrl', function($scope) {
  *
 
 
-  * Homework 
+  * Homework fd
  * - "enter" button functionality instead of clicking button
  * - edit button functionality
  * - button to mark item as "complete"
@@ -155,8 +155,6 @@ myApp.controller('MainCtrl', function($scope) {
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
-
-
   * Homework (not rly):
  * - "enter" button functionality instead of clicking button
  * - edit button functionality
